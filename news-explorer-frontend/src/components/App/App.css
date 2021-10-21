@@ -1,0 +1,21 @@
+.page {
+  margin: 0 auto;
+  font-family: "Inter", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 1440px;
+}
+
+.page__background {
+  background-image: url("../../images/background-page.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -87px;
+}
+
+@media screen and (max-width: 500px) {
+  .page__background {
+    background-image: url("../../images/background-mobile.png");
+  }
+}

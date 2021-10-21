@@ -1,0 +1,115 @@
+.cards {
+  background-color: #f5f6f7;
+  padding-bottom: 80px;
+  padding-top: 62px;
+}
+.cards__block {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f6f7;
+  margin: 0 auto;
+  max-width: 1232px;
+}
+
+.cards__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(400px, 1fr));
+  list-style-type: none;
+  width: auto;
+  gap: 16px;
+  padding-bottom: 64px;
+  padding-left: 0;
+  justify-items: center;
+}
+
+.cards__title {
+  font-family: "Roboto Slab", "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 1.15;
+  color: #1a1b22;
+  margin-left: 16px;
+}
+
+.cards__btn {
+  background-color: #fff;
+  border-radius: 80px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33;
+  color: #1a1b22;
+  min-width: 288px;
+  border: none;
+  padding: 20px;
+  align-self: center;
+}
+
+.cards__btn:hover {
+  opacity: 0.9;
+  background-color: #e8e8e8;
+}
+@media screen and (max-width: 1240px) {
+  .cards__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    list-style-type: none;
+    width: auto;
+    gap: 16px;
+    padding-bottom: 64px;
+    padding-left: 0;
+    justify-items: center;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .cards__block {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .cards__list {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 8px;
+    padding-bottom: 32px;
+  }
+  .cards__title {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .cards {
+    padding-bottom: 40px;
+    padding-top: 32px;
+  }
+  .cards__block {
+    padding: 0px;
+  }
+  .cards__list {
+    grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+    gap: 8px;
+    padding-bottom: 32px;
+  }
+  .cards__title {
+    padding-left: 16px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cards {
+    padding-bottom: 32px;
+    padding-top: 24px;
+  }
+
+  .cards__list {
+    grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+    gap: 8px;
+    padding-bottom: 15px;
+  }
+  .cards__title {
+    font-size: 30px;
+    line-height: 1.13;
+  }
+  .cards__btn {
+    padding: 16px;
+  }
+}

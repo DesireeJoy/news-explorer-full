@@ -1,0 +1,118 @@
+.login__label {
+  color: #2f71e5;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  padding-bottom: 10px;
+  margin-left: 36px;
+}
+
+.login__label:first-of-type {
+  margin-right: 20px;
+}
+
+.login__input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  min-width: 358px;
+  margin: 10px 0px 10px 36px;
+  height: 33px;
+  padding: 5px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+.login__error {
+  color: #f00;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  margin-left: 36px;
+}
+
+.login__btn {
+  min-width: 360px;
+  background-color: #2f71e5;
+  border-radius: 100px;
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+  color: #fff;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+  border: none;
+  padding: 20px;
+  margin-top: 40px;
+  margin-left: 36px;
+}
+
+.login__btn:hover {
+  opacity: 0.6;
+}
+
+.login__extraText {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  font-weight: 500;
+  color: #000;
+}
+.login__link {
+  text-decoration: none;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #2f71e5;
+  margin-left: 5px;
+}
+.login__btn_disabled {
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+  min-width: 360px;
+  border-radius: 100px;
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+  border: none;
+  padding: 20px;
+  margin-top: 40px;
+  margin-left: 36px;
+}
+
+.login__link:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 615px) {
+  .login__label {
+    padding-bottom: 10px;
+    margin-left: 0px;
+  }
+
+  .login__label:first-of-type {
+    margin-right: 20px;
+  }
+
+  .login__input {
+    min-width: 288px;
+    margin: 0 17px 30px 0;
+  }
+
+  .login__btn {
+    min-width: 288px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+}

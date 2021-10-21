@@ -1,0 +1,66 @@
+.header {
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  height: 80px;
+  align-items: center;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid #d1d2d6;
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  background: transparent;
+  width: 100%;
+  max-width: 1440px;
+  max-height: 80px;
+  font-size: 18px;
+  align-items: center;
+  z-index: 1;
+}
+
+.header__logo {
+  font-family: "Roboto Slab", "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 24px;
+  margin-left: 30px;
+  align-self: center;
+  text-decoration: none;
+}
+
+.header__logo_black {
+  color: #1a1b22;
+}
+
+.header__hamburger {
+  height: 24px;
+  width: 24px;
+  background-image: url("../../images/hamburger.svg");
+  border: none;
+  background-color: transparent;
+  background-position: center;
+  background-size: cover;
+  margin-right: 16px;
+}
+
+.header__hamburger_black {
+  background-image: url("../../images/hamburger-black.svg");
+}
+
+.header__hamburger_hidden {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  .header__logo {
+    margin-left: 16px;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .header {
+    padding-top: 16px;
+    padding-bottom: 15px;
+  }
+}

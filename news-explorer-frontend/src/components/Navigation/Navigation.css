@@ -1,0 +1,134 @@
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navigation__text {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+  align-self: center;
+  font-weight: 500;
+  text-decoration: none;
+  padding-bottom: 23px;
+  padding-top: 30px;
+}
+
+.navigation__text_black {
+  color: #1a1b22;
+}
+
+.navigation__text_saved {
+  margin-left: 42px;
+}
+
+.navigation__btn {
+  border-radius: 100px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  min-width: 176px;
+  max-height: 48px;
+  padding: 12px;
+  margin: 19px 30px 19px 42px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navigation__btn_black {
+  border: 1px solid #1a1b22;
+}
+
+.navigation__btn-username {
+  text-overflow: ellipsis;
+  margin-right: 20px;
+  vertical-align: center;
+}
+
+.navigation__text:hover {
+  opacity: 0.5;
+  border-bottom: 3px solid #fff;
+}
+
+.navigation__text_active {
+  border-bottom: 3px solid #fff;
+}
+
+.navigation__text_active-black {
+  border-bottom: 3px solid #1a1b22;
+}
+
+.navigation__close-btn {
+  background-image: url("../../images/close-icon.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  margin-right: 16px;
+  width: 24px;
+  height: 24px;
+  z-index: 2;
+}
+
+@media screen and (max-width: 1024px) {
+  .navigation__btn {
+    margin-right: 16px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .navigation__text {
+    font-size: 16px;
+  }
+  .navigation__btn {
+    padding: 8px 12px;
+    min-width: 152px;
+    max-height: 40px;
+  }
+}
+
+@media screen and (max-width: 768) {
+  .navigation_mobile {
+    height: auto;
+    flex-direction: row;
+    align-self: center;
+    justify-content: center;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 615px) {
+  .nav {
+    width: 100%;
+  }
+  .navigation_mobile {
+    height: auto;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+  }
+  .navigation__text {
+    font-size: 18px;
+  }
+  .navigation__text_active {
+    border-bottom: none;
+  }
+  .navigation__text_active-black {
+    border-bottom: none;
+  }
+  .navigation__text_home {
+    margin: 0px 16px;
+  }
+  .navigation__text_saved {
+    margin-left: 16px;
+    margin-bottom: 28px;
+  }
+  .navigation__btn {
+    width: 288px;
+    margin: 0px 16px;
+  }
+  .navigation__hamburger {
+    z-index: 1;
+  }
+}

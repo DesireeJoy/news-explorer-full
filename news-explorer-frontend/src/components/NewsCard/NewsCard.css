@@ -1,0 +1,205 @@
+.card {
+  border-radius: 16px;
+  max-width: 400px;
+  background-color: #fff;
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.card:hover {
+  box-shadow: 0 10px 58px rgba(8, 29, 45, 0.1);
+}
+
+.card__img {
+  border-radius: 16px 16px 0 0;
+  background-image: url("../../images/card-dog.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 272px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__keyword-display {
+  min-width: 80px;
+  height: 40px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 40px;
+  font-weight: 500;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 24px;
+  margin-top: 24px;
+}
+
+.card__btn-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.card__btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  margin-top: 24px;
+  margin-right: 24px;
+  border: none;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card__btn_bookmark {
+  background-image: url("../../images/bookmark.svg");
+}
+
+.card__btn_bookmark:hover {
+  background-image: url("../../images/bookmark-black.svg");
+}
+
+.card__btn_active {
+  background-image: url("../../images/bookmark-active.svg");
+}
+
+.card__btn_active:hover {
+  background-image: url("../../images/bookmark-active.svg");
+}
+
+.card__btn_trashcan {
+  background-image: url("../../images/trash.svg");
+  background-size: 18px 19px;
+}
+
+.card__btn_trashcan:hover {
+  background-image: url("../../images/trash-black.svg");
+}
+
+.card__btn-signin {
+  background-color: #fff;
+  width: 182px;
+  height: 40px;
+  border-radius: 10px;
+  margin-top: 24px;
+  margin-right: 5px;
+  border: none;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+  display: none;
+}
+
+.card__btn:hover + .card__btn-signin {
+  display: block;
+}
+
+.card__date {
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.33;
+  color: #b6bcbf;
+  margin: 20px 24px 12px;
+}
+
+.card__title {
+  font-family: "Roboto Slab", "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 1.15;
+  color: #1a1b22;
+  margin: 0 24px 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: left;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.card__description {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.37;
+  color: #1a1b22;
+  margin: 0 24px 18px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.card__keyword {
+  font-family: "Roboto Slab", "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #b6bcbf;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 0 24px 24px;
+}
+@media screen and (max-width: 1240  px) {
+  .card {
+    max-width: 190px;
+    max-height: 420px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    max-width: 224px;
+    max-height: 420px;
+  }
+  .card__img {
+    min-height: 150px;
+  }
+  .card__btn {
+    margin-top: 8px;
+    margin-right: 8px;
+  }
+  .card__date {
+    margin: 16px 16px 12px;
+  }
+  .card__title {
+    font-size: 22px;
+    line-height: 1.09;
+    margin: 0 16px 16px;
+  }
+  .card__description {
+    margin: 0 16px 12px;
+    max-height: 88px;
+  }
+  .card__keyword {
+    margin: 0 16px 16px;
+  }
+  .card__keyword-display {
+    margin-left: 8px;
+    margin-top: 8px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card {
+    max-width: 288px;
+    max-height: 440px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+  .card__img {
+    min-height: 196px;
+  }
+  .card__btn {
+    margin-top: 16px;
+    margin-right: 16px;
+  }
+  .card__date {
+    margin: 16px 16px 10px;
+  }
+  .card__title {
+    font-size: 22px;
+    line-height: 1.09;
+    margin-bottom: 14px;
+  }
+}
