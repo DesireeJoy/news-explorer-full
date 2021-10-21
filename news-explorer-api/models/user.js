@@ -6,13 +6,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    // validate: {
-    //   validator(v) {
-    //     return validator.isEmail(v);
-    //   },
-      // message: 'Invalid email',
-    // },
-
+    validate: {
+      validator(v) {
+        return validator.isEmail(v);
+      },
+      message: 'Invalid email',
+    },
   },
   password: {
     type: String,
