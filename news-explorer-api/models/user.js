@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     //     return validator.isEmail(v);
     //   },
       // message: 'Invalid email',
-    },
+    // },
 
   },
   password: {
