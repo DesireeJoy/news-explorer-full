@@ -12,28 +12,28 @@ const user = require('./userRoutes');
 
 router.post(
   '/signin',
-  // celebrate({
-  //   body: Joi.object()
-  //     .keys({
-  //       email: Joi.string().required().email(),
-  //       password: Joi.string().required().min(8),
-  //     })
-  //     .unknown(true),
-  // }),
+  celebrate({
+    body: Joi.object()
+      .keys({
+        email: Joi.string().required().email(),
+        password: Joi.string().required().min(8),
+      })
+      .unknown(true),
+  }),
   loginUser,
 );
 
 router.post(
   '/signup',
-  celebrate({
-    body: Joi.object()
-      .keys({
-        email: Joi.string().required().email().messages({ 'any.required': '"Y" dont you see me' }),
-        password: Joi.string().required().min(8),
-        name: Joi.string().required().min(2).max(30),
-      })
-      .unknown(true),
-  }),
+  // celebrate({
+  //   body: Joi.object()
+  //     .keys({
+  //       email: Joi.string().required().email().messages({ 'any.required': '"Y" dont you see me' }),
+  //       password: Joi.string().required().min(8),
+  //       name: Joi.string().required().min(2).max(30),
+  //     })
+  //     .unknown(true),
+  // }),
   createUser,
 );
 router.get(
