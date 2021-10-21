@@ -122,7 +122,7 @@ export const mainApi = new MainApi({
     // baseUrl: 'https://34.125.192.74:3000/',
     // baseUrl: 'https://desinews.netlify.app/api/',
     //for AWS
-    baseUrl:'http://ec2-18-118-15-153.us-east-2.compute.amazonaws.com/news-explorer-full/news-explorer-api/'
+    baseUrl:'https://api.djbnews.students.nomoreparties.site/',
     headers: {
       'Accept': "application/json",
     'Content-Type': 'application/json',
