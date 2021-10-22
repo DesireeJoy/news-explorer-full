@@ -53,7 +53,7 @@ function loginUser(req, res, next) {
       if (!user) {
         return Promise.reject(new InvalidError('Incorrect password or email'));
       }
-
+console.log("I'm in")
       return bcrypt.compare(password, user.password).then((match) => {
         if (!match) {
           return Promise.reject(
