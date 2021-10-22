@@ -101,7 +101,7 @@ class MainApi {
         })
         .then(res => { console.log(res)})
             .then(res => {
-                console.log(res)
+                console.log(res.json())
                 return res.json()
             })
     }
