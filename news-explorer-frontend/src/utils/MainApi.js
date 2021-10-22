@@ -1,4 +1,5 @@
 const token = localStorage.getItem("token");
+console.log(token)
 
 class MainApi {
     constructor({ baseUrl, headers }) {
@@ -100,6 +101,7 @@ class MainApi {
         })
         .then(res => { console.log(res)})
             .then(res => {
+                console.log(res)
                 return res.json()
             })
     }
