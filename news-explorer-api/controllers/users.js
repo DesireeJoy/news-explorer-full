@@ -60,6 +60,7 @@ function loginUser(req, res, next) {
             new InvalidError('Incorrect password or email'),
           );
         }
+        console.log("Logged in yup" + `with the ${jwt}`)
         const token = jwt.sign(
           { _id: user._id },
           NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
