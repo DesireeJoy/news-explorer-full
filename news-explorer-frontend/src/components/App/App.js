@@ -43,7 +43,7 @@ const[notFound, setNotFound] = useState(false)
   const [cards, setCards] = React.useState([]);
   const [numCardsShown, setNumCardsShown] = useState(3);
   const [savedCards, setSavedCards] = React.useState([]);
-console.log("errors are " + errors)
+
 // Use Effects
 
   React.useEffect(() => {
@@ -144,7 +144,7 @@ function handleCheckToken() {
           if (res) {
             setLoggedin(true);
             setValues({ email: res.email, password: res.password, name: res.name });
-            history.push('/')
+            getUser();
           }
         })
         .catch(err => {
@@ -195,6 +195,9 @@ function handleCheckToken() {
         handleCheckToken();
         closeAllPopups();
         resetForm();
+      })
+      .then(() => {
+        window.location.reload();
       })
       .catch((res) => {
         if (res.statusCode === 400) {
