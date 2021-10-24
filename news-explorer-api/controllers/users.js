@@ -51,11 +51,11 @@ function loginUser(req, res, next) {
     .select('password')
     .then((user) => {
       if (!user) {
-        return Promise.reject(new InvalidError('Incorrect password or email'));
+        return Promise.reject(new InvalidError('No such user'));
       }
-console.log("I'm in")
       return bcrypt.compare(password, user.password).then((match) => {
         if (!match) {
+          console.log("PAsswords didn't match")
           return Promise.reject(
             new InvalidError('Incorrect password or email'),
           );

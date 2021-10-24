@@ -1,5 +1,4 @@
 const token = localStorage.getItem("token");
-console.log(token)
 
 class MainApi {
     constructor({ baseUrl, headers }) {
@@ -99,9 +98,9 @@ class MainApi {
             headers: this._headers,
             body: JSON.stringify({ email, password })
         })
-        .then(res => {
+            .then(res => {
                 return res.json()
-       })
+            })
     }
 
     checkToken(token) {
@@ -118,10 +117,7 @@ class MainApi {
 }
 
 export const mainApi = new MainApi({
-    // baseUrl: 'https://api.desinews.students.nomoreparties.site/',
-    // baseUrl: 'https://34.125.192.74:3000/',
-    // baseUrl: 'https://desinews.netlify.app/api/',
-    //for AWS
+
     baseUrl:'https://api.djbnews.students.nomoreparties.site/',
     headers: {
       'Accept': "application/json",

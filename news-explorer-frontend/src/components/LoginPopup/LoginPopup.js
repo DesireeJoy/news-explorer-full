@@ -3,7 +3,7 @@ import React from 'react';
  
 
 function LoginPopup(props) {
-    console.log(props.wrongEmailOrPasswordMessage)
+    console.log("Message " + props.wrongEmailOrPasswordMessage)
     return (
         (
             <Popup

@@ -54,6 +54,7 @@ console.log("errors are " + errors)
  React.useEffect(() => {
     if (localStorage.getItem("token")) {
       getUser();
+      localStorage.getItem("token")
     }
   }, []);
 
@@ -178,31 +179,24 @@ function handleCheckToken() {
 
 
   function handleSignIn(e) {    
-    if (e){
-    e.preventDefault();
-    }
+
     e.preventDefault();
     mainApi
       .authorize(values.email, values.password)
-      .then(res => {
-   
-        if (res.statusCode === 400) {
+      .then((res) => {
+        if (res.message === "Authorization Error") {
           setWrongEmailOrPasswordMessage(true);
           return Promise.reject(`Error! ${res.message}`);
         }
-        console.log(res)
         localStorage.setItem('token', res.token);
-        console.log(localStorage.getItem('token'));
-        getUser();
       })
       .then(() => {
-         handleCheckToken();
+        getUser();
+        handleCheckToken();
         closeAllPopups();
         resetForm();
-       
-        window.location.reload();
       })
-      .catch(res => {
+      .catch((res) => {
         if (res.statusCode === 400) {
           console.log('one of the fields was filled in incorrectly')
            setWrongEmailOrPasswordMessage(true);
@@ -236,7 +230,6 @@ function handleCheckToken() {
       .getUserInfo()
       .then((res) => {
         setCurrentUser(res);
-        
         findSavedArticles(token);
       })
       .catch((err) => {
@@ -264,7 +257,6 @@ function handleCheckToken() {
       ...values,
       [name]: value,
     };
-    console.log(newValues)
     setValues(newValues);
     fieldValidation(newValues);
     setErrors({ ...errors, [name]: errors[name] });
