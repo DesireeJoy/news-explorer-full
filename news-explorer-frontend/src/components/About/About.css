@@ -8,13 +8,16 @@
 }
 
 .about__image {
-  min-width: 464px;
-  max-height: 464px;
+  max-width: 264px;
+  max-height: 264px;
   border-radius: 50%;
 }
 
 .about__container {
   margin-left: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .about__heading {
@@ -23,8 +26,6 @@
   font-size: 40px;
   line-height: 1.15;
   color: #1a1b22;
-  margin-top: 51px;
-  margin-bottom: 24px;
 }
 
 .about__description {
@@ -55,8 +56,6 @@
   .about__heading {
     font-size: 30px;
     line-height: 1.33;
-    margin-top: 0;
-    margin-bottom: 16px;
   }
 }
 @media screen and (max-width: 625px) {
