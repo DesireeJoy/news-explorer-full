@@ -17,7 +17,7 @@ function Header(props) {
                         Loggedin={props.Loggedin}
                         onSignOut={props.onSignOut}
                         savedNewsLocation={props.savedNewsLocation}
-                        values={props.values}
+                     
                     />
                 ) : (
                     <Navigation
@@ -27,7 +27,7 @@ function Header(props) {
                         mobileMenuOpen={props.mobileMenuOpen}
                         Loggedin={props.Loggedin}
                         onSignOut={props.onSignOut}
-                        values={props.values}
+              
                     />
                 )}
                 {props.mobile && (

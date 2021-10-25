@@ -45,12 +45,12 @@ const[notFound, setNotFound] = useState(false)
   const [savedCards, setSavedCards] = React.useState([]);
 
 // Use Effects
-
+//Check if they're already logged in
   React.useEffect(() => {
     handleCheckToken();
   }, []);
 
-//Get Username and such
+//Get Username and such if they're already logged in
  React.useEffect(() => {
     if (localStorage.getItem("token")) {
       getUser();
@@ -58,6 +58,8 @@ const[notFound, setNotFound] = useState(false)
     }
   }, []);
 
+
+  //Figure out if the screen is mobile for Nav purposes
     React.useEffect(() => {
     const handleScreenSizeChange = () => setScreenWidth(window.innerWidth);
     window.addEventListener("resize", handleScreenSizeChange);
@@ -69,16 +71,18 @@ setIsMobile(screenWidth < 768);
 
 
 //Get Saved Cards and put them on the server
-  React.useEffect(() => {
+  // React.useEffect(() => {
 
-    if (localStorage.getItem('savedCards') !== null && Loggedin) {
-      setSavedCards(JSON.parse(localStorage.getItem('savedCards')));
-      setResults(true);
-    }
-  }, []);
+  //   if (localStorage.getItem('savedCards') !== null && Loggedin) {
+  //     setSavedCards(JSON.parse(localStorage.getItem('savedCards')));
+  //     setResults(true);
+  //     console.log("Now it is " + localStorage.savedCards)
+  //   }
+  // }, []);
 
 
-//Article Stuff
+
+ //Private API Calls related to articles
 function handleDeleteArticle(article) {
     article.isSaved = false;
     mainApi.deleteArticle(article._id)
@@ -94,7 +98,7 @@ function handleDeleteArticle(article) {
       .catch(err => console.log("Error: " + err));
   }
 
- 
+
  function findSavedArticles(token) {
     mainApi
       .getArticles(token)
@@ -133,8 +137,9 @@ function handleDeleteArticle(article) {
   }
 
 
-//SignIn / Singup Stuff (Minus Click Events)
-
+//Private API calls related to authorization
+//Get the local JWT (called token) and then check to see if 
+// This is used in signin as well as the useEffect
 function handleCheckToken() {
   const jwt = localStorage.getItem("token");
   if (jwt) {
@@ -143,7 +148,6 @@ function handleCheckToken() {
         .then(res => {
           if (res) {
             setLoggedin(true);
-            setValues({ email: res.email, password: res.password, name: res.name });
             getUser();
           }
         })
@@ -151,13 +155,11 @@ function handleCheckToken() {
           console.log("Err: " + err);
         });
     }
-  
   }
 
 
   function handleSignup(e){ 
     e.preventDefault();
-    console.log("These Values are correct heading to the mainApi" + values.name)
     mainApi.register(values.email, values.password, values.name)
     .then((res) =>{
        if (res.message === 'Duplicate User') {      
@@ -249,11 +251,8 @@ function handleCheckToken() {
       ...origErrors,
       email: validEmailRegex.test(values.email) ? "" : "Invalid email address",
     }));
-
   }
-
-   
-
+//Check Validity and if any aren't valid, disables the submit button
   const handleChangeForm = (e) => {
    const { name, value } = e.target;
     const newValues = {
@@ -264,7 +263,7 @@ function handleCheckToken() {
     fieldValidation(newValues);
     setErrors({ ...errors, [name]: errors[name] });
     setWrongEmailOrPasswordMessage(false);
-    setIsValid(e.target.closest('form').checkValidity());
+   setIsValid(e.target.closest('form').checkValidity());
   };
 
   const resetForm = useCallback(
