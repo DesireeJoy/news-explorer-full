@@ -16,7 +16,7 @@ function Main(props) {
                     <SearchForm errorMessage={props.searchErrorMsg} handleSearchSubmit={props.handleSearchSubmit} searchTerm={props.searchTerm} setSearchTerm={props.setSearchTerm}/>
                 </div>
                 {props.preloader && <Preloader />}
-  {props.notFound && <NotFound /> }
+  {/* {props.notFound && <NotFound /> } */}
 
 
  {props.cards?.length > 0 ? (<section className='cards'>
