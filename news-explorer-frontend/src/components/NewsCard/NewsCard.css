@@ -23,6 +23,7 @@
 
 .card__keyword-display {
   min-width: 80px;
+  max-width: 120px;
   height: 40px;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-size: 14px;
