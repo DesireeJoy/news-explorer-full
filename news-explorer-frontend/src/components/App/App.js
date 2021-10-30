@@ -60,11 +60,11 @@ const[notFound, setNotFound] = useState(false)
 
 
   //Figure out if the screen is mobile for Nav purposes
-    React.useEffect(() => {
-    const handleScreenSizeChange = () => setScreenWidth(window.innerWidth);
-    window.addEventListener("resize", handleScreenSizeChange);
+  React.useEffect(() => {
+  const handleScreenSizeChange = () => setScreenWidth(window.innerWidth);
+  window.addEventListener("resize", handleScreenSizeChange);
 
-setIsMobile(screenWidth < 768);
+  setIsMobile(screenWidth < 768);
 
     return () => window.removeEventListener("resize", handleScreenSizeChange);
   }, [screenWidth]);
