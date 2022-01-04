@@ -18,4 +18,4 @@ to allow users to create an account, search articles and save them for later ref
 
 ### Screenshots
 
-![React Portfolio Preview](DJBReact-Site-Preview.png)
+![News Explorer Fullstack App Preview](News-Explorer-Preview.png)
