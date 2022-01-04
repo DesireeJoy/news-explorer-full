@@ -32,8 +32,7 @@ to allow users to create an account, search articles and save them for later ref
   }
   </>
             )}
-            
-function handleSearchSubmit(e) {
+      function handleSearchSubmit(e) {
     e.preventDefault();
     setPreloader(true);
     if (searchTerm.length === 0) {
