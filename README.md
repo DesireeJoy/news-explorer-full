@@ -15,6 +15,7 @@ to allow users to create an account, search articles and save them for later ref
  - Utilized a public API news service to fetch up to date news data..
  - Incorporated validation through celebrate and joi
  - Developed using MVC pattern with Node.js, ExpressJS and Mongoose ODM
+ - Hosted on AWS
 
 ### Screenshots
 
