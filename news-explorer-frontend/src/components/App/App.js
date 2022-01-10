@@ -24,6 +24,7 @@ import { GoogleLogin } from 'react-google-login';
   const [isLoginPopupOpen, setLoginPopupOpen] = useState(false);
   const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
   const [isGoogleConfirmPopupOpen, setGoogleConfirmPopupOpen] = useState(false);
+  const [googleMessage, setGoogleMessage] = useState('');
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
   const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
@@ -52,7 +53,8 @@ const handleGoogleSignup = (newValues) =>{
     mainApi.register(newValues.email, newValues.password, newValues.name)
     .then((res) =>{
        if (res.message === 'Duplicate User') {   
-         console.log("User email already used")     
+         console.log("User email already used") 
+         setGoogleMessage('Email is already in the database, please sign in using form.')    
          setGoogleConfirmPopupOpen(true)
         }
         if (res.ok){
@@ -141,7 +143,9 @@ mainApi
 }
 
   const responseGoogleFailure = () => {
-      console.log("Google Sign In Was Unsuccesful")
+      setGoogleMessage("Google Sign In Was Unsuccesful")
+      setGoogleConfirmPopupOpen(true)
+      setGoogleMessage("Could not connect to Google Authorization. Please try again later")
 
 }
 
@@ -544,6 +548,7 @@ function handleRegisterLinkClick() {
         onSigninClick={handleSigninClick}
         onClose={closeAllPopups}
         isOpen={isGoogleConfirmPopupOpen}
+        message={googleMessage}
         />
         </CurrentUserContext.Provider>
        </div>
