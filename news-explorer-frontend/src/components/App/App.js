@@ -444,6 +444,7 @@ function handleSigninClick() {
     setRegisterPopupOpen(false);
     setMobileNavOpen(false);
     setConfirmationPopupOpen(false);
+    setGoogleConfirmPopupOpen(false)
   }
 function handleRegisterLinkClick() {
     setRegisterPopupOpen(true);
