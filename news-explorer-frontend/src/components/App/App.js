@@ -5,6 +5,7 @@ import Main from '../Main/Main';
 import SavedNews from '../SavedNews/SavedNews';
 import LoginPopup from '../LoginPopup/LoginPopup';
 import ConfirmationPopup from '../ConfirmationPopup/ConfirmationPopup';
+import GoogleConfirmPopup from '../GoogleConfirmPopup/GoogleConfirmPopup';
 import RegisterPopup from '../RegisterPopup/RegisterPopup';
 import Footer from '../Footer/Footer';
 import './App.css'; 
@@ -22,6 +23,7 @@ import { GoogleLogin } from 'react-google-login';
   const [isRegisterPopupOpen, setRegisterPopupOpen] = useState(false);
   const [isLoginPopupOpen, setLoginPopupOpen] = useState(false);
   const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
+  const [isGoogleConfirmPopupOpen, setGoogleConfirmPopupOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
   const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
@@ -51,7 +53,7 @@ const handleGoogleSignup = (newValues) =>{
     .then((res) =>{
        if (res.message === 'Duplicate User') {   
          console.log("User email already used")     
-         handleGoogleSignin(newValues);
+         setGoogleConfirmPopupOpen(true)
         }
         if (res.ok){
       return res.json();
@@ -60,6 +62,7 @@ const handleGoogleSignup = (newValues) =>{
     .then(() => {
         setDuplicateEmail(false)       
         resetForm();
+       
       })
       .catch(err => console.log(err));
   
@@ -129,6 +132,7 @@ mainApi
     console.log(newValues)
         setValues(newValues);
     handleGoogleSignup(newValues)
+    setGoogleConfirmPopupOpen(true)
     }
     catch(error){
       console.log("No " + error)
@@ -423,6 +427,7 @@ function closeAllPopups() {
     setRegisterPopupOpen(false);
     setMobileNavOpen(false);
     setConfirmationPopupOpen(false);
+    setGoogleConfirmPopupOpen(false)
   }
   function handleMobileClick() {
     setMobileNavOpen(true);
@@ -533,6 +538,11 @@ function handleRegisterLinkClick() {
         onSigninClick={handleSigninClick}
         onClose={closeAllPopups}
         isOpen={isConfirmationPopupOpen}
+        />
+            <GoogleConfirmPopup
+        onSigninClick={handleSigninClick}
+        onClose={closeAllPopups}
+        isOpen={isGoogleConfirmPopupOpen}
         />
         </CurrentUserContext.Provider>
        </div>
