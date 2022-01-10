@@ -118,7 +118,7 @@ class MainApi {
 
 export const mainApi = new MainApi({
 
-    baseUrl:'https://api.djbnews.students.nomoreparties.site/',
+    baseUrl:'https://api.djbnews.students.nomoreparties.sbs/',
     headers: {
       'Accept': "application/json",
     'Content-Type': 'application/json',
