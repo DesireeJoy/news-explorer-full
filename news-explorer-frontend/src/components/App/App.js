@@ -432,6 +432,7 @@ function closeAllPopups() {
     setMobileNavOpen(false);
     setConfirmationPopupOpen(false);
     setGoogleConfirmPopupOpen(false)
+    setGoogleMessage('')
   }
   function handleMobileClick() {
     setMobileNavOpen(true);
