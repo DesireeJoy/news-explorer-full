@@ -145,7 +145,7 @@ mainApi
   const responseGoogleFailure = () => {
       setGoogleMessage("Google Sign In Was Unsuccesful")
       setGoogleConfirmPopupOpen(true)
-      setGoogleMessage("Could not connect to Google, Please try again later")
+      setGoogleMessage("Google Signin Failed")
 
 }
 
