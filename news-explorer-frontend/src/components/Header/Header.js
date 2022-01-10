@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
  import Navigation from '../Navigation/Navigation';
   import MobileNavigation from '../MobileNavigation/MobileNavigation';
+  
 
 function Header(props) {
      
@@ -17,6 +18,8 @@ function Header(props) {
                         Loggedin={props.Loggedin}
                         onSignOut={props.onSignOut}
                         savedNewsLocation={props.savedNewsLocation}
+                        responseGoogleSuccess={props.responseGoogleSuccess}
+                        responseGoogleFailure={props.responseGoogleFailure}
                      
                     />
                 ) : (
@@ -24,9 +27,11 @@ function Header(props) {
                         savedNewsLocation={props.savedNewsLocation}
                         onSigninClick={props.onSigninClick}
                         mobile={props.mobile}
-                        mobileMenuOpen={props.mobileMenuOpen}
+                        mobileNavOpen={props.mobileNavOpen}
                         Loggedin={props.Loggedin}
                         onSignOut={props.onSignOut}
+                        responseGoogleSuccess={props.responseGoogleSuccess}
+                        responseGoogleFailure={props.responseGoogleFailure}
               
                     />
                 )}

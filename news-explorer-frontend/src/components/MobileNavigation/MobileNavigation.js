@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function MobileNavigation(props) {
 
-
+console.log("Navigation mobile " + props.mobileNavOpen)
     return (
         (
             <div className={`navigation__mobile navigation__mobile-${props.mobileNavOpen ? "null" : "hidden"}`}>

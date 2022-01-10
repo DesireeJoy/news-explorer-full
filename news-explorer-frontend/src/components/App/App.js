@@ -13,6 +13,8 @@ import { newsApi } from '../../utils/NewsAPI';
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { token } from '../../utils/constants'
+import { GoogleLogin } from 'react-google-login';
+
 
  function App() {
  /* State Variables */
@@ -27,8 +29,8 @@ import { token } from '../../utils/constants'
   const [wrongEmailOrPasswordMessage, setWrongEmailOrPasswordMessage] = React.useState(false)
   const location = useLocation();
   const history= useHistory();
- const savedNewsLocation = location.pathname === '/saved-news';
-const [values, setValues] = React.useState({ email: '', password: '', name: '' });
+  const savedNewsLocation = location.pathname === '/saved-news';
+  const [values, setValues] = React.useState({ email: '', password: '', name: '' });
 
   const [errors, setErrors] = React.useState({});
   const [isValid, setIsValid] = React.useState(false);
@@ -44,6 +46,103 @@ const[notFound, setNotFound] = useState(false)
   const [numCardsShown, setNumCardsShown] = useState(3);
   const [savedCards, setSavedCards] = React.useState([]);
 
+const handleGoogleSignup = (newValues) =>{
+    mainApi.register(newValues.email, newValues.password, newValues.name)
+    .then((res) =>{
+       if (res.message === 'Duplicate User') {   
+         console.log("User email already used")     
+         handleGoogleSignin(newValues);
+        }
+        if (res.ok){
+      return res.json();
+        }
+    })
+    .then(() => {
+        setDuplicateEmail(false)       
+        resetForm();
+      })
+      .catch(err => console.log(err));
+  
+}
+
+
+const handleGoogleSignin = (newValues) =>{
+
+mainApi
+      .authorize(newValues.email, newValues.password)
+      .then((res) => {
+        if (res.message === "Authorization Error") {
+          setWrongEmailOrPasswordMessage(true);
+          return Promise.reject(`Error! ${res.message}`);
+        }
+        localStorage.setItem('token', res.token);
+      })
+      .then(() => {
+        getUser();
+        handleCheckToken();
+        closeAllPopups();
+        resetForm();
+      })
+      .then(() => {
+        window.location.reload();
+      })
+      .catch((res) => {
+        if (res.statusCode === 400) {
+          console.log('one of the fields was filled in incorrectly')
+           setWrongEmailOrPasswordMessage(true);
+          return Promise.reject(`Error! ${res.message}`);
+        }
+        if (res.statusCode === 401) {
+          console.log('user email not found')
+           setWrongEmailOrPasswordMessage(true);
+          return Promise.reject(`Error! ${res.message}`);
+        }
+      })
+}
+ 
+
+
+// //Google Auth as a promise
+// const responseGoogleSuccess = new Promise((res, rej) =>{
+//   setTimeout(() => {
+//     resolve('foo');
+//   }, 300);
+// }
+// responseGoogleSuccess
+// .then(value => { return value + ' and bar'; })
+//   .then(handleResolvedC, handleRejectedC);
+
+
+//Google Authorization response
+  const responseGoogleSuccess = async (response) => {
+    const result = response?.profileObj;
+    const token = response?.tokenId;
+
+    try{
+    console.log(result);
+ const {name, email, googleId } = result
+    const newValues = {
+      'name': name,
+      'email': email,
+      'password': googleId
+    };
+    console.log(newValues)
+        setValues(newValues);
+    handleGoogleSignup(newValues)
+    }
+    catch(error){
+      console.log("No " + error)
+    }
+
+}
+
+  const responseGoogleFailure = () => {
+      console.log("Google Sign In Was Unsuccesful")
+
+}
+
+
+  
 // Use Effects
 //Check if they're already logged in
   React.useEffect(() => {
@@ -365,6 +464,8 @@ function handleRegisterLinkClick() {
        mobileNavOpen={isMobileNavOpen}
        onHamburgerClick={handleMobileClick}
        onClose={handleMobileClose}
+       responseGoogleSuccess={responseGoogleSuccess}
+       responseGoogleFailure={responseGoogleFailure}
        />
 
          <Switch> 
@@ -416,6 +517,7 @@ function handleRegisterLinkClick() {
           values={values}
           isValid={isValid}
           wrongEmailOrPasswordMessage={wrongEmailOrPasswordMessage}
+       
         />
         <RegisterPopup
           onSigninClick={handleSigninClick}
