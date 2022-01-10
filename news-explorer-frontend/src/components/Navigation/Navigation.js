@@ -10,8 +10,6 @@ function Navigation(props) {
 const currentUser = React.useContext(CurrentUserContext)
 const isMobile = props.mobile ? "mobile" : "";
 
-console.log(props.Loggedin)
-
 
     return (
         (
