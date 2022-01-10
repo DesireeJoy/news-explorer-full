@@ -3,7 +3,7 @@ import signOut from '../../images/signout-black.svg';
 import signOutWhite from '../../images/signout-white.svg';
 import React from 'react';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
- import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 
 
 function Navigation(props) {
