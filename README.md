@@ -3,7 +3,7 @@ Full News Explorer Api for AWS hosting
 
 # News Explorer Full Stack App
 
-[Live AWS hosted Link](https://djbnews.students.nomoreparties.site/)
+[Live AWS hosted Link](https://djbnews.students.nomoreparties.sbs/)
 
 ## Technology
 
