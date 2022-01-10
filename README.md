@@ -3,7 +3,7 @@ Full News Explorer Api for AWS hosting
 
 # News Explorer Full Stack App
 
-[Live AWS hosted Link](https://djbnews.students.nomoreparties.site/)
+[Live AWS hosted Link](https://djbnews.students.nomoreparties.sbs/)
 
 ## Technology
 
@@ -17,6 +17,6 @@ to allow users to create an account, search articles and save them for later ref
  - Developed using MVC pattern with Node.js, ExpressJS and Mongoose ODM
  - Hosted on AWS
 
-### Screenshots
+### Screenshot
 
 ![News Explorer Fullstack App Preview](News-Explorer-Preview.png)
